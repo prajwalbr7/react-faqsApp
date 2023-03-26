@@ -4,19 +4,7 @@ import './index.css'
 import FaqItem from '../FaqItem'
 
 class Faqs extends Component {
-  state = {discription: false}
-
-  onClickingAction = () => {
-    this.setState(prevState => {
-      const {discription} = prevState
-      return {
-        discription: !discription,
-      }
-    })
-  }
-
   render() {
-    const {discription} = this.state
     const {faqsList} = this.props
     return (
       <div className="container1">
@@ -24,12 +12,7 @@ class Faqs extends Component {
           <h1 className="Main-heading">FAQs</h1>
           <ul className="ulstyle">
             {faqsList.map(eachItem => (
-              <FaqItem
-                faqDetails={eachItem}
-                discription={discription}
-                onClickingAction={this.onClickingAction}
-                key={eachItem.id}
-              />
+              <FaqItem faqDetails={eachItem} key={eachItem.id} />
             ))}
           </ul>
         </div>
